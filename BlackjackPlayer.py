@@ -8,7 +8,7 @@ class BlackjackPlayer(object):
     def __init__(self, hand):
         self._hand = hand
 
-    # Function that checks whether a player's score is over 21
+    # Function that checks whether a player's hand score is over 21
     def has_busted(self):
         if (self._hand._score > 21):
             return True

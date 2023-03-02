@@ -1,4 +1,4 @@
-import Card
+from card import Card
 import random 
 
 '''
@@ -16,10 +16,9 @@ class Deck(object):
         self._deck = []
 
         # Creating a non-shuffled deck of cards
-        for suit in range(len(Card.suits)):
-            for value in range(len(Card.values)):
-                self._deck.append(Card(suit, value))
-                print(Card(suit, value))
+        for suit in Card.suits:
+            for rank in Card.ranks:
+                self._deck.append(Card(suit, rank))
 
         # Shuffling the deck of cards
         self.shuffle_deck()
