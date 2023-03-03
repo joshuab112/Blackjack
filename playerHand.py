@@ -18,13 +18,17 @@ class PlayerHand(Hand):
         # Put the card in the player's hand
         self._cards.append(card)
 
+        # Showing the player their card
+        print(card)
+
         # If the card dealt is an Ace
-        if (card._rank == "A"):
+        if (card._rank == "Ace"):
+
 
             while (True):
 
                 # The player must choose whether to count the Ace as a 1 or 11
-                optionalScore = int(input("Do you want to count the Ace as 1 or 11? "))
+                optionalScore = int(input("\nDo you want to count the Ace as 1 or 11? "))
 
                 # If the player enters any number besides 1 or 11
                 if (optionalScore != 1 and optionalScore != 11):

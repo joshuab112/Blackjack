@@ -15,18 +15,36 @@ class Hand(object):
     # Function that shows a player's current hand of cards
     # and the score value of said hand. 
     def __str__(self):
+
+        # Making the hand more presentable
+        currentHand = "--------------------\n"
         
         if (len(self._cards) > 0):
-            currentHand = self._cards[0].__str__()
+            currentHand += "1) " + self._cards[0].__str__()
 
             for x in range(1, len(self._cards)):
-                currentHand += "\n" + self._cards[x].__str__()
+                currentHand += "\n" + str(x + 1) + ") "+ self._cards[x].__str__()
+            
+            currentHandAndScore = currentHand + "\n\nScore: " + str(self._score)
 
-            currentHandAndScore = currentHand + "\nScore of " + str(self._score)
+            # Making the hand and score more presentable
+            currentHandAndScore += "\n--------------------"
         
             return currentHandAndScore
 
         return "Empty Hand"
+
+    # Function that checks whether a hand has busted
+    def has_busted(self):
+
+        # If the hand's score is over 21
+        if (self._score > 21):
+
+            # The hand has busted
+            return True
+
+        # The hand's score stands at or below 21
+        return False
 
 
 

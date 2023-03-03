@@ -23,7 +23,7 @@ class DealerHand(Hand):
         self._cards.append(card)
 
         # If the card dealt is an Ace
-        if (card._rank == "A"):
+        if (card._rank == "Ace"):
 
             # If the Ace is the first card the dealer is hit with
             if (len(self._cards) == 1):
@@ -35,7 +35,7 @@ class DealerHand(Hand):
             elif (len(self._cards) == 2):
 
                 # If the previous card is not an Ace
-                if (self._cards[0]._rank == "A"):
+                if (self._cards[0]._rank == "Ace"):
 
                     # Count the Ace as 11
                     self._score += 11
