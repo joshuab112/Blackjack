@@ -11,15 +11,16 @@ class PlayerHand(Hand):
     def __init__(self):
         Hand.__init__(self)
 
+
     # Function that "hits", or adds a card to, a player's hand.
     # The value of the hand is updated accordingly.
     def hit(self, card):
 
         # Put the card in the player's hand
-        self._cards.append(card)
+        self.cards.append(card)
 
         # Showing the player their card
-        print(card)
+        print(f"{card}\n")
 
         # If the card dealt is an Ace
         if (card._rank == "Ace"):
@@ -28,26 +29,26 @@ class PlayerHand(Hand):
             while (True):
 
                 # The player must choose whether to count the Ace as a 1 or 11
-                optionalScore = int(input("\nDo you want to count the Ace as 1 or 11? "))
+                optionalScore = input("Do you want to count the Ace as 1 or 11? ")
 
                 # If the player enters any number besides 1 or 11
-                if (optionalScore != 1 and optionalScore != 11):
+                if (optionalScore != "1" and optionalScore != "11"):
 
                     # Prompt the player for valid input
-                    print("Ace can only count as 1 or 11!")
+                    print("\nAce can only count as 1 or 11!\n")
 
                 else:
 
                     # Player has chosen a valid score value
-                    print(str(optionalScore) + " it is!")
+                    print("\n" + optionalScore + " it is!\n")
 
                     # Add the chosen score to the hand's score value
-                    self._score += optionalScore
+                    self.score += int(optionalScore)
 
                     break
-
+                
         else: 
-            self._score += Card.values[card._rank]
+            self.score += Card.values[card._rank]
 
 
 

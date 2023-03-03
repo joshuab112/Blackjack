@@ -13,12 +13,12 @@ class Deck(object):
 
         # List that will represent a deck of cards.
         # Will consist of "Card" objects.
-        self._deck = []
+        self.deck = []
 
         # Creating a non-shuffled deck of cards
         for suit in Card.suits:
             for rank in Card.ranks:
-                self._deck.append(Card(suit, rank))
+                self.deck.append(Card(suit, rank))
 
         # Shuffling the deck of cards
         self.shuffle_deck()
@@ -26,11 +26,12 @@ class Deck(object):
     
     # Function that pops the top card off the deck 
     def deal_card(self):
-        return self._deck.pop()
+        return self.deck.pop()
+
 
     # Function that shuffles the deck of cards 
     def shuffle_deck(self):
-        random.shuffle(self._deck)
+        random.shuffle(self.deck)
 
 
 

@@ -20,6 +20,7 @@ class Card(object):
     def __init__(self, suit, rank):
         self._suit = suit
         self._rank = rank
+        
 
     # Function that returns the rank and suite of a card.
     def __str__(self):
