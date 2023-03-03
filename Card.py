@@ -21,6 +21,7 @@ class Card(object):
         self._suit = suit
         self._rank = rank
 
+    # Function that returns the rank and suite of a card.
     def __str__(self):
         return f"{self._rank} of {self._suit}"
 
