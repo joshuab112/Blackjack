@@ -4,12 +4,14 @@ from card import Card
 '''
 Class that represents a player's hand of cards.
 Unlike the dealer, when a player is dealt an Ace,
-they can choose the value of said Ace. 
+they can choose the value of said Ace. Also, a 
+player can make a bet of a certain token value on a hand.
 '''
 class PlayerHand(Hand):
     
     def __init__(self):
         Hand.__init__(self)
+        self.bet = 0
 
 
     # Function that "hits", or adds a card to, a player's hand.
