@@ -15,7 +15,7 @@ class Card(object):
     value will be chosen at the player's discretion or automatically for the dealer
     '''
     values = {"2": 2, "3" : 3, "4" :4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
-              "Jack": 10, "King": 10, "Queen": 10}
+              "Jack": 10, "King": 10, "Queen": 10, "Ace": 11}
     
     def __init__(self, suit, rank):
         self._suit = suit

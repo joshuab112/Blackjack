@@ -25,7 +25,6 @@ class PlayerHand(Hand):
         # If the card dealt is an Ace
         if (card._rank == "Ace"):
 
-
             while (True):
 
                 # The player must choose whether to count the Ace as a 1 or 11

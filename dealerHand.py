@@ -35,7 +35,7 @@ class DealerHand(Hand):
             elif (len(self.cards) == 2):
 
                 # If the previous card is not an Ace
-                if (self.cards[0]._rank == "Ace"):
+                if (self.cards[0]._rank != "Ace"):
 
                     # Count the Ace as 11
                     self.score += 11
