@@ -6,14 +6,10 @@ Python 3 Download can be found <a href="https://www.python.org/downloads/">here<
 <br>
 Instructions on how to download Python can be found here <a href="https://realpython.com/installing-python/">here</a>.
 
-<br>
-
 ## How to Run
 1) Once you have downloaded the zip file, unzip the file and open a terminal on your machine.
 2) Navigate to the directory where the unzipped folder is located.
 3) Once you have reached the directory, run the command "python blackjack.py"
-
-<br>
 
 ## Additional Features
 
