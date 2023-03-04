@@ -2,6 +2,7 @@
 
 ## Setup
 The latest version of Python 3 is required be installed on the user's machine before running this program.
+<br>
 Python 3 Download can be found <a href="https://www.python.org/downloads/">here</a>.
 <br>
 Instructions on how to download Python can be found <a href="https://realpython.com/installing-python/">here</a>.
