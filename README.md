@@ -2,13 +2,18 @@
 
 ## Setup
 It is required that the latest version of Python 3 be installed on a machine before running this program.
-Python 3 Download can be found <a href="https://www.python.org/downloads/">here</a>. 
+Python 3 Download can be found <a href="https://www.python.org/downloads/">here</a>.
+<br>
 Instructions on how to download Python can be found here <a href="https://realpython.com/installing-python/">here</a>.
+
+<br>
 
 ## How to Run
 1) Once you have downloaded the zip file, unzip the file and open a terminal on your machine.
 2) Navigate to the directory where the unzipped folder is located.
 3) Once you have reached the directory, run the command "python blackjack.py"
+
+<br>
 
 ## Additional Features
 
