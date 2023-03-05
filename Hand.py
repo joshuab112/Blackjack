@@ -1,5 +1,3 @@
-from card import Card
-
 '''
 Class that represents a hand of cards.
 Each hand of cards has a list of "Card" objects 

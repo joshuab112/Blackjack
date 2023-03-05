@@ -1,5 +1,5 @@
-from hand import Hand
-from card import Card
+from Hand import Hand
+from Card import Card
 
 '''
 Class that represents a player's hand of cards.
