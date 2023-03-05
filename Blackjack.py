@@ -31,6 +31,7 @@ class Blackjack(object):
 
         print("Welcome to Blackjack!\n")
         sleep(1.5)
+        print(f"You currently have {self.tokens} tokens.\n")
         sleep(1.5)
 
         # If player is eligible to play the game
