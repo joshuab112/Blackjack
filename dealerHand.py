@@ -86,7 +86,7 @@ class DealerHand(Hand):
         # Making the hand more presentable
         currentHand = "--------------------\n"
         
-        currentHand += self.cards[0].__str__() + "\n{Hidden Card}"
+        currentHand += "1) " + self.cards[0].__str__() + "\n2) {Hidden Card}"
 
         currentHandAndScore = currentHand + "\n\nScore of: ?"
 
