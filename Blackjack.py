@@ -708,7 +708,7 @@ class Blackjack(object):
 
             else:
                 sleep(1)
-                print("Please provide a valid answer.")
+                print("\nPlease provide a valid answer.\n")
                 sleep(1)
 
 
