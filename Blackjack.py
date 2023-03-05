@@ -25,17 +25,12 @@ class Blackjack(object):
     def setup(self):
 
         self.player = PlayerHand()
-
         self.dealer = DealerHand()
 
         print("--------------------------------------------------------------------")
 
         print("Welcome to Blackjack!\n")
-
         sleep(1.5)
-
-        print(f"You currently have {self.tokens} tokens.\n")
-
         sleep(1.5)
 
         # If player is eligible to play the game
@@ -60,7 +55,6 @@ class Blackjack(object):
         print("Let the game begin!\n")
 
         print("First, let's deal the cards out...\n")
-
         sleep(1.5)
 
         # Dealing out the initial cards to the dealer and player.
@@ -74,71 +68,54 @@ class Blackjack(object):
             leftPlayerHand = PlayerHand()
 
             print("Your left hand is a", end = " ")
-
             sleep(1)
-
             leftPlayerHand.hit(self.player.cards[0])
-
             sleep(1)
 
             # Create separate hand for right card
             rightPlayerHand = PlayerHand()
 
             print("Your right hand is a", end = " ")
-
             sleep(1)
-
             rightPlayerHand.hit(self.player.cards[1])
-
             sleep(1)
 
             print("Your original bet will now apply to both hands.\n")
-
             sleep(1)
 
             # Set bet value for left hand
             leftPlayerHand.bet = self.player.bet
 
             print(f"The bet for the left hand: {leftPlayerHand.bet} tokens.\n")
-
             sleep(1)
 
             # Set bet value for right hand
             rightPlayerHand.bet = self.player.bet
 
             print(f"The bet for the right hand: {rightPlayerHand.bet} tokens.\n")
-
             sleep(1)
 
             # Subtract additional bet from the total tokens since the player has split their hand
             self.tokens -= self.player.bet
 
             print(f"You now have {self.tokens} tokens.\n")
-
             sleep(1)
 
             # Players can only be dealt one card for each new hand if the identical hands contain Aces
             if (playerInitialDealingOutcome == "split ace"):
 
                 print("Since you split Aces, you will only be dealt one card to each new hand...\n")
-
                 sleep(1)
-
                 print("New card for your left hand...", end = " ")
-
                 sleep(1)
 
                 # Hitting the player's left hand with a new card
                 leftPlayerHand.hit(self.deck.deal_card())
 
                 sleep(1)
-
                 print("New left hand:\n")
-
                 sleep(1)
-
                 print(leftPlayerHand)
-
                 sleep(1)
 
                 # In the event a player gets another Ace and chooses to count it as 11
@@ -156,27 +133,18 @@ class Blackjack(object):
                     self.outcome_of_player_turn("stay", leftPlayerHand, "left")
 
                 sleep(1)
-
                 print("Let's deal a new card for your right hand...")
-
                 sleep(1)
-
                 print("\nNew card for your right hand...", end = " ")
-
                 sleep(1)
 
                 # Hitting the player's right hand with a new card
                 rightPlayerHand.hit(self.deck.deal_card())
 
                 sleep(1)
-
                 print("New right hand:\n")
-
                 sleep(1)
-
-                # Showing the player their new right hand
                 print(rightPlayerHand)
-
                 sleep(1)
 
                 # In the event a player gets another Ace and chooses to count it as 11
@@ -196,11 +164,8 @@ class Blackjack(object):
             # Player's split cards are not Aces and thus their split hands can be played normally
             else:
                 print("Let's play your left hand first...\n")
-
                 sleep(1)
-
                 print(leftPlayerHand)
-
                 sleep(1)
 
                 # Outcome of the player's left hand being played
@@ -210,13 +175,9 @@ class Blackjack(object):
                 self.outcome_of_player_turn(playerTurnOutcome_1, leftPlayerHand, "left")
 
                 sleep(1)
-
                 print("Now let's play your right hand...\n")
-
                 sleep(1)
-
                 print(rightPlayerHand)
-
                 sleep(1)
 
                 # Outcome of the player's right hand being played
@@ -244,9 +205,7 @@ class Blackjack(object):
         elif (playerInitialDealingOutcome == "player blackjack"):
 
             sleep(1)
-
             self.outcome_of_player_turn("player blackjack", self.player, "original")
-
             sleep(1)
 
             # It is time for the dealer to play
@@ -262,8 +221,8 @@ class Blackjack(object):
         elif (playerInitialDealingOutcome == "player bust"):
 
             sleep(1)
-
             self.outcome_of_player_turn("player bust", self.player, "original")
+            sleep(1)
 
             # It is time for the dealer to play. Sole reason for dealer playing in the event of 
             # a player busting in the intial card dealing is so results are evaluated in the same function
@@ -325,16 +284,15 @@ class Blackjack(object):
             if (playerBet.isnumeric() and int(playerBet) >= 2 and int(playerBet) <= self.tokens):
 
                 print(f"\nYou have chosen to bet {playerBet} tokens.\n")
-
                 sleep(1)
 
                 # Subtracting the player's bet from their current token amount
                 self.tokens -= int(playerBet)
 
+                # Setting the player's bet to the value that they chose to bet
                 self.player.bet = int(playerBet)
 
                 print(f"You now have {self.tokens} tokens left.\n")
-
                 sleep(1)
 
                 return
@@ -343,25 +301,19 @@ class Blackjack(object):
             elif (playerBet.isnumeric() and int(playerBet) < 2):
 
                 sleep(1)
-
                 print("\nBet must be at least 2 tokens!\n")
-
                 sleep(1)
 
             # Player has bet more tokens than they currently have
             elif (playerBet.isnumeric() and int(playerBet) > self.tokens):
 
                 sleep(1)
-
                 print("\nYou don't have enough tokens to place that bet!\n")
-
                 sleep(1)
 
             else:
                 sleep(1)
-
                 print("\nPlease provide a valid number\n")
-
                 sleep(1)
 
 
@@ -370,61 +322,45 @@ class Blackjack(object):
     # These results include player deciding whether or not to split, or the player's hand busting or being a blackjack
     def initial_card_dealing(self):
 
-        print("Your first card...", end = " ")
-
-        sleep(1)
-
         # Giving the player their first card
-        self.player.hit(self.deck.deal_card())
-
+        print("Your first card...", end = " ")
         sleep(1)
-
-        print("Dealer's first card...", end = " ")
-
+        self.player.hit(self.deck.deal_card())
         sleep(1)
 
         # Giving the dealer their first card
+        print("Dealer's first card...", end = " ")
+        sleep(1)
         self.dealer.hit(self.deck.deal_card())
 
         # Showing the dealer's first card
         print(f"{self.dealer.cards[0]}\n")
-
-        sleep(1)
-
-        print("Your second card...", end = " ")
-
         sleep(1)
 
         # Giving the player their second card
-        self.player.hit(self.deck.deal_card())
-
+        print("Your second card...", end = " ")
         sleep(1)
-
-        print("Dealer's second card...", end = " ")
+        self.player.hit(self.deck.deal_card())
+        sleep(1)
 
         # Giving the dealer their second card
+        print("Dealer's second card...", end = " ")
         self.dealer.hit(self.deck.deal_card())
-
         sleep(1)
 
+        # Player is not able to see what the dealer's second card is
         print("{Hidden}")
-
         sleep(1)
 
         # Showing the dealer's initial hand
         print("\nHere is the dealer's initial hand:\n")
-
         sleep(1.5)
-
         print(self.dealer.obscured_hand())
-
         sleep(1.5)
 
         # Showing the player their initial hand
         print("\nHere is your initial hand:\n")
-
         sleep(1.5)
-
         print(self.player)
 
         # If the player has not busted and was dealt two cards with identical ranks
@@ -462,27 +398,19 @@ class Blackjack(object):
             if (playerChoice.lower() == "hit"):
 
                 sleep(1)
-
                 print("\nThe dealer will hit you with another card.")
-
                 sleep(1)
-                
                 print ("\nYour new card...", end = " ")
-
                 sleep(1)
 
                 # Hitting the player with another card
                 playerHand.hit(self.deck.deal_card())
-
                 sleep(1)
 
                 # Showing the player their new hand
                 print("Here's your new hand:\n")
-
                 sleep(1)
-
                 print(f"{playerHand}")
-
                 sleep(1)
 
                 # If the player's new hand made them bust
@@ -535,11 +463,8 @@ class Blackjack(object):
     def dealer_turn(self):
 
         print("\nLet's see the dealer's hand...\n")
-
         sleep(2)
-
         print(self.dealer)
-
         sleep(2)
 
         # Dealer can only stand if their score is higher than 17 but less than 21
@@ -552,37 +477,39 @@ class Blackjack(object):
 
                 sleep(2)
 
-                print("Dealer's new card...", end = " ")
-
                 # Giving the dealer a new card
+                print("Dealer's new card...", end = " ")
                 self.dealer.hit(self.deck.deal_card())
 
                 # Showing the dealer's new card
                 print(f"{self.dealer.cards[-1]}\n")
-
                 sleep(2)
 
                 # If dealer's score is less than 17 after being given new card
                 if (self.dealer.score < 17):
 
                     print(f"Dealer's score of {self.dealer.score} is still less than 17.")
-
                     sleep(2)
-
                     print("\nThe dealer will draw again!\n")
 
-        print("The dealer will stay.\n")
+        # If the dealer has busted during their turn
+        if (self.dealer.has_busted()):
 
+            print ("Dealer has busted!\n")
+
+
+         # Dealer did not bust during their turn
+        else:
+            print("The dealer will stay.\n")
+
+        # Displaying the dealer's final hand
         sleep(2)
-
         print("Dealer's final hand...\n")
-
         sleep(2)
-
         print(self.dealer)
 
+        # Displaying the dealer's final score
         sleep(2)
-
         print(f"\n|Dealer's final score: {self.dealer.score}|\n")
 
     
@@ -601,9 +528,7 @@ class Blackjack(object):
             else:
 
                 sleep(1)
-
                 print ("\nUnfortunately, you do not have enough tokens to split these cards.\n")
-
                 sleep(1)
 
                 return False
@@ -617,9 +542,7 @@ class Blackjack(object):
     def player_split_decision(self):
 
         sleep(1)
-        
         print("\nLooks like you have identical ranks!")
-
         sleep(1)
 
         while(True):
@@ -630,9 +553,7 @@ class Blackjack(object):
             if (playerChoice.lower().strip() == "yes"):
 
                 sleep(1)
-
                 print("\nYour current hand will be split!\n")
-
                 sleep(1)
 
                 # If the two cards being split are Aces and the player hasn't busted
@@ -649,9 +570,7 @@ class Blackjack(object):
             elif (playerChoice.lower().strip() == "no"):
 
                 sleep(1)
-
                 print("\nYou have decided to play your original hand.")
-
                 sleep(1)
 
                 return "no split"
@@ -673,9 +592,7 @@ class Blackjack(object):
         if (self.dealer.has_busted() and not(playerHand.has_busted())):
 
             print(f"Dealer's hand has busted so player's {playerHandID} hand wins!\n")
-
             sleep(1)
-
             print(f"You have won {2 * playerHand.bet} tokens!\n")
 
             # Adding the awarded tokens to the player's total amount of tokens
@@ -685,18 +602,14 @@ class Blackjack(object):
         elif (not(self.dealer.has_busted()) and playerHand.has_busted()):
 
             print(f"Player's {playerHandID} hand has busted therefore the dealer's hand wins.\n")
-
             sleep(1)
-
             print(f"The dealer will keep your bet of {playerHand.bet} tokens.\n")
         
         # If both the dealer's hand and the player's hand busted then the dealer still wins
         elif (self.dealer.has_busted() and playerHand.has_busted()):
 
             print(f"Even though the dealer's hand busted, the player's {playerHandID} hand still loses against the dealer's hand.\n")
-
             sleep(1)
-
             print(f"The dealer will keep your token bet of {playerHand.bet} tokens.\n")
 
         # Neither the dealer nor the player's hand busted
@@ -716,7 +629,6 @@ class Blackjack(object):
                     self.tokens += (playerHand.bet)
 
                     print("Since blackjack was won on split hand, the payout is only 1:1.\n")
-                    
                     print(f"You still win {playerHand.bet} tokens!")
 
                 else:
@@ -729,18 +641,14 @@ class Blackjack(object):
             elif (not(playerHand.score == 21) and self.dealer.score == 21):
 
                 print(f"Since dealer has a blackjack...Dealer wins against player's {playerHandID} hand!\n")
-
                 sleep(1)
-
                 print(f"The dealer will keep your bet of {playerHand.bet} tokens.\n")
 
             # If the dealer and the player have the same score then game ends in a tie
             elif (self.dealer.score == playerHand.score):
 
                 print(f"Player's {playerHandID} hand ties with dealer!\n")
-
                 sleep(1)
-
                 print(f"Your bet of {playerHand.bet} tokens will be refunded.\n")
 
                 self.tokens += playerHand.bet
@@ -749,9 +657,7 @@ class Blackjack(object):
             elif (self.dealer.score > playerHand.score):
 
                 print(f"Dealer wins against player's {playerHandID} hand!\n")
-
                 sleep(1)
-
                 print(f"The dealer will keep your bet of {playerHand.bet} tokens.\n")
 
             # Player's score is greater than dealer's score so the player wins
@@ -779,14 +685,11 @@ class Blackjack(object):
             if (playerChoice == "yes"):
 
                 sleep(1)
-
                 print("\nLet's go!\n")
-
                 sleep(1)
 
                 # Setting up for another game
                 self.setup()
-
                 sleep(1)
 
                 break
@@ -800,9 +703,7 @@ class Blackjack(object):
 
             else:
                 sleep(1)
-
                 print("Please provide a valid answer.")
-
                 sleep(1)
 
 
