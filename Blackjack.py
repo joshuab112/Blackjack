@@ -498,7 +498,6 @@ class Blackjack(object):
 
             print ("Dealer has busted!\n")
 
-
         # If the dealer got a blackjack during their turn
         elif (self.dealer.score == 21):
 
