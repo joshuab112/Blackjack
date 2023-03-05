@@ -1,8 +1,8 @@
 import math
 from time import sleep
 from Deck import Deck
-from DealerHand import DealerHand
-from PlayerHand import PlayerHand
+from dealerHand import DealerHand
+from playerHand import PlayerHand
 
 '''
 Class that will act as the main hub for the blackjack game.
