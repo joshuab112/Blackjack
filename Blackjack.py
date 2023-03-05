@@ -609,7 +609,7 @@ class Blackjack(object):
         # If both the dealer's hand and the player's hand busted then the dealer still wins
         elif (self.dealer.has_busted() and playerHand.has_busted()):
 
-            print(f"Even though the dealer's hand busted, the player's {playerHandID} hand still loses against the dealer's hand.\n")
+            print(f"Even though your {playerHandID} hand and the dealer's hand busted, the house always wins.\n")
             sleep(1)
             print(f"The dealer will keep your token bet of {playerHand.bet} tokens.\n")
 
